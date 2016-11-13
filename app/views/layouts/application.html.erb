@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top PC</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!--  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="row">
+              <br>
+              <div id="grid">
+                <%#= link_to root_path, {:remote => true} do  %>
+                  <%#= inline_svg "header", class: 'svg' %>
+                <#% end %>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<div class="container">
+    <%= yield %>
+</div>
+  
+<!--  
+   <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="row">
+              <br>
+              <div id="grid">
+                <%#= link_to root_path, {:remote => true} do  %>
+                  <%#= inline_svg "footer", class: 'svg' %>
+                <%# end %>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  -->
+  
+  
+</body>
+</html>

@@ -1,0 +1,63 @@
+ <!-- Modal-Show -->
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" hidden="true">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title"><%= @part.name %></h4>
+        </div>
+        <div class="modal-body" align="center">
+         
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-xl-6">
+                <h3 class="text-modal" align="right"><%= @part.group %></h3>
+              </div> 
+              <div class="col-xs-12 col-sm-6 col-xl-6">
+                <h3 class="text-modal" align="left"><%= @part.name %></h3>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-xl-6">
+                <img class="img-responsive" src="<%= escape_javascript(@part.picture.url) %>" alt="/images/:style/missing.png">
+              </div> 
+              <div class="col-xs-12 col-sm-6 col-xl-6">
+                <%= form_for @part do |f| %>
+                <h5 class="text-modal" align="left"><%= f.text_area :description, :class => "statement", :readonly => true %></h5>
+                <% end %>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-xl-12">
+                <h5>Среднерыночная цена ≈ $<%= @part.price.round %></h5>
+              </div> 
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-xl-12">
+                <a target="_blank" href="<%= @part.shop_url %>" onclick="$('#modal-show').modal('hide');">Купить можно тут</a>
+              </div> 
+            </div>
+          </div>
+          
+          <br>
+            <button type="button" id="delbutton" class="btn btn-primary" data-dismiss="modal" >Закрыть</button>
+        </div>
+      </div><!-- /.modal-content -->
+      
+    </div>
+    
+<script>
+$(".modal").on("hidden.bs.modal", function(){
+    $(".modal-body").html("");
+});
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+        $(this).removeData('bs.modal');
+      });
+      
+      
+autosize($('textarea')); 
+    
+</script>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    
+<br>
+
+<% @parts = Part.all %>
+
+<div class="container">
+    <div id=outergrid>
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="row">
+                     <%= link_to welcome_select_all_url, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-select_all'} do  %>
+                     <div id="grid">
+                       <h2><h4 align='center'>Выбрать все</h4></h2>
+					   
+					   <div class="row">
+                                <div class="col-xl-12"></div>
+                            </div> 
+                            
+					</div>
+					<% end %>
+                </div>
+            </div>
+            
+            <div class="col-xl-4">
+                <div class="row">
+                    <div id="grid-nope">
+					   <h2 align='center'><b>Топовый комп</b></h1>
+					</div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4">
+                <div class="row">
+                    <%= link_to root_path, {:remote => true}, :onclick => "UncheckAll();" do  %>
+                    <div id="grid" onclick="UncheckAll();">
+					   <h2><h4 align='center'>Отмена</h4></h2>
+					   
+					   <div class="row">
+                                <div class="col-xl-12"></div>
+                            </div> 
+                            
+					</div>
+					<% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div id=outergrid>
+        <div class="row">
+    
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <% part = Part.where(:group => "Монитор").last %>
+                        <% if part != nil %>
+                            <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= check_box_tag(:caller2, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= check_box_tag(:caller3, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/11.svg", class: 'svg' %>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/11.svg", class: 'svg' %></div>
+                        <% end %>
+                        
+                            <!-- adding 0,25px rows -->
+                        
+                            <div class="row">
+                                <div class="col-xl-12"></div>
+                            </div> 
+    
+                            <div class="row">
+                                <div class="col-xl-12"></div>
+                            </div> 
+                            
+                            
+                            <div class="row">
+                                <div class="col-xl-12"></div>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-xl-12">
+                        <% part = Part.where(:group => "Клава").last %>
+                        <% if part != nil %>
+                            <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/21-1.svg", class: 'svg' %>
+                            <% end %>
+                        <% else %>
+                            <div id="grid"><%= inline_svg "2/21-1.svg", class: 'svg' %></div>
+                        <% end %>
+                        
+                        
+                        <!-- adding 0,25px rows -->
+    
+                        <div class="row">
+                            <div class="col-xl-12"></div>
+                        </div> 
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Джойстик").last %>
+                        <% if part != nil %>
+                            <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/22.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>
+                            <div id="grid"><%= inline_svg "2/22.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Мышь").last %>
+                        <% if part != nil then %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/23.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>
+                            <div id="grid"><%= inline_svg "2/23.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Руль").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show', :style=>'color:#000000;'} do  %>
+                                <%= inline_svg "2/24.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "2/24.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "VR").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/25.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "2/25.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Наушники").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/26.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "2/26.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Акустика").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "2/27.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "2/27.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>    
+            
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Системник").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/12.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/12.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Дисковод").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/13.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/13.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "БП").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/16.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/16.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div id="grid-nope"><%= inline_svg "1/19.svg", class: 'svg-nope' %></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <div id="grid-nope"><%= inline_svg "3/31.svg", class: 'svg-nope' %></div>
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Мать Intel").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "3/32.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "3/32.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <div id="grid-nope"><%= inline_svg "3/33.svg", class: 'svg-nope' %></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "CPU Intel").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "3/34.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "3/34.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <div id="grid-nope"><%= inline_svg "3/35.svg", class: 'svg-nope' %></div>
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "GPU Nvidia").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller,  part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+                            <%= check_box_tag(:caller2, part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+                            <%= check_box_tag(:caller3, part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+                            <%= check_box_tag(:caller4, part.price, false, :onclick => "clickCh(this)", :class => 'nvidia') %>
+
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "3/36.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "3/36.svg", class: 'svg' %></div>
+                        <% end %>
+    
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Звуковуха").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "3/37.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "3/37.svg", class: 'svg' %></div>
+                        <% end %>
+    
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Картридер").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "3/38.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "3/38.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>        
+            
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "HDD").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/14.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/14.svg", class: 'svg' %></div>
+                        <% end %>                
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "SSD").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/15.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/15.svg", class: 'svg' %></div>
+                        <% end %>                
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "SSD m.2").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/17.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/17.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "RAM").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            
+                            <%= check_box_tag(:caller,  part.price, false, :onclick => "clickCh(this)") %>
+                            <%= check_box_tag(:caller2, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= check_box_tag(:caller3, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= check_box_tag(:caller4, part.price, false, :onclick => "clickCh(this)") %>
+                            
+                            
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "1/18.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "1/18.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div id="grid-nope"><%= inline_svg "1/110.svg", class: 'svg-nope' %></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Мать AMD").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "4/41.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "4/41.svg", class: 'svg' %></div>
+                        <% end %>                
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <div id="grid-nope"><%= inline_svg "4/42.svg", class: 'svg-nope' %></div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "CPU AMD").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "4/43.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "4/43.svg", class: 'svg' %></div>
+                        <% end %>                
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                            <div id="grid-nope"><%= inline_svg "4/44.svg", class: 'svg-nope' %></div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "GPU AMD").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= check_box_tag(:caller2, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= check_box_tag(:caller3, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= check_box_tag(:caller4, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "4/45.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "4/45.svg", class: 'svg' %></div>
+                        <% end %>                
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <div id="grid-nope"><%= inline_svg "4/46.svg", class: 'svg-nope' %></div>
+                    </div>
+                    
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Регулятор Оборотов").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "4/47.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "4/47.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-xl-6">
+                        <% part = Part.where(:group => "Кулер").last %>
+                        <% if part != nil %>
+                        <div id="grid">
+                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)") %>
+                            <%= link_to part_path(:id => part.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-show'} do  %>
+                                <%= inline_svg "4/48.svg", class: 'svg' %></div>
+                            <% end %>
+                        <% else %>    
+                            <div id="grid"><%= inline_svg "4/48.svg", class: 'svg' %></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="row">
+                    <div id="grid-nope-noborder">
+					    <h3 align="right">$</h3> <!-- ≈ -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4">
+                <div class="row">
+                    <div id="grid-nope-noborder">
+                        <input id="total" type="text" name="total" vertical-align="middle" class="statement" value="0">
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<br>
+
+<div class="modal fade" id="modal-show" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+<div class="modal fade" id="modal-select_all" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<script>
+    
+    //module for enabling hover effect for touchscreen devices
+    $(document).ready(function() { 
+        $('.hover').bind('touchstart touchend', function(e) {
+            e.preventDefault();
+            $(this).toggleClass('hover_effect');
+        });
+    });
+    
+$(".modal").on("hidden.bs.modal", function(){
+    $(".modal-body").html("");
+});
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+        $(this).removeData('bs.modal');
+      });
+
+
+</script>
+
+<script>
+
+
+var total = document.getElementById("total")
+function clickCh(caller){
+if(caller.checked){
+add(caller)
+} else {
+subtract(caller)
+}
+}
+function add(caller){ total.value = total.value*1 + caller.value*1}
+function subtract(caller){ total.value = total.value*1 - caller.value*1}
+
+function UncheckAll(){ 
+      var w = document.getElementsByTagName('input'); 
+      for(var i = 0; i < w.length; i++){ 
+        if(w[i].type=='checkbox'){ 
+          w[i].checked = false; 
+          total.value = 0;
+            
+        }
+      }
+  }
+  
+function CheckAll(){ 
+      var w = document.getElementsByTagName('input'); 
+      for(var i = 0; i < w.length; i++){ 
+        if(w[i].type=='checkbox'){ 
+          w[i].checked = true; 
+            
+        }
+      }
+  } 
+
+
+</script>

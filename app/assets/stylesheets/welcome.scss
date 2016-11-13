@@ -1,0 +1,295 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+    /* Prevent font scaling in landscape while allowing user zoom 
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    */
+    zoom: 0.7;
+    
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+
+}
+
+#outergrid {
+margin: 0px;
+padding: 0px;
+line-height: 0;
+border-top: 0.5px solid;
+border-bottom: 0.5px solid;
+border-left: 0.5px solid;
+border-right: 0.5px solid;
+
+}
+
+#grid {
+filter: invert(0%);
+border-color: #000000;
+
+
+     -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+
+}
+
+#grid:hover {
+background: #FFFFFF;
+border-color: #FFFFFF;
+
+
+filter: invert(100%);
+
+     -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+
+}
+
+#grid:hover input[type='checkbox'] {
+filter: invert(100%);
+
+     -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+
+}
+
+#grid, #grid-nope {
+margin: 0px;
+padding: 0px;
+line-height: 0;
+border-top: 0.5px solid;
+border-bottom: 0.5px solid;
+border-left: 0.5px solid;
+border-right: 0.5px solid;
+
+}
+
+#grid-nope-noborder {
+   margin: 0px;
+padding: 0px;
+line-height: 0; 
+    border-top: 0px;
+border-bottom: 0px;
+border-left: 0px;
+border-right: 0px;
+    
+}
+
+a:active, a:focus { 
+    -moz-outline-style: none; 
+outline: none;
+
+    
+}
+
+
+#grid a, h1, h2, h3, h4, h5 {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+h4 {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+
+div[class="row"] {
+/*    border: 1px solid rgba(0, 0, 0, 0.5); */
+
+margin: 0px;
+padding: 0px;
+line-height: 0;
+ }
+ 
+div[class^="col-"] {
+
+/*        border: 0.5px solid; */
+/*    background-color: rgba(255, 0, 0, 0.2);   */
+margin: 0px;
+padding: 0px;
+line-height: 0;
+}
+
+.svg {
+}
+
+.svg:hover {
+}
+
+#Entry {
+	  box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+#Modal-Entry {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+    transition: all 0.5s ease;
+  
+  
+}
+
+#Entry {
+	background:#EEEEEE;
+}
+
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a:link, a:visited, a:hover, a:active, a:focus  { 
+    text-decoration:none; 
+    color: inherit;
+      -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+
+html, input, #grid, #outergrid, #grid-nope, .svg, .row, div, textarea, select, a { outline: none;   outline-style: none;
+}
+
+:focus {
+  outline-color: none;
+  outline-style: none;
+
+
+}
+
+.statement {
+	width: 96%;
+	margin: 0%;
+    padding: 0px;
+    border: 0px ;
+    background-color: rgba(0, 0, 0, 0); 
+    overflow:hidden;
+    -ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;		/* IE11+ */
+
+}
+
+#total, #tot {
+    font-size: 20pt;
+    
+}
+
+::-webkit-resizer {
+    display: none;
+}
+
+.text-modal {
+	width: 96%;
+	margin: 0%;
+    padding: 0px;
+    border: 2px ;
+    background-color: rgba(0, 0, 0, 0); 
+    overflow:hidden;
+    -ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;		/* IE11+ */
+
+}
+
+
+
+input[type='checkbox'] {
+   width: 25px;
+   height: 25px;
+   background: #FFFFFF;
+   
+     -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+#caller {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 5px;
+   top: 5px;
+   background: #FFFFFF;
+   
+   
+   
+}
+
+
+#caller2 {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 35px;
+   top: 5px;
+   background: #FFFFFF;
+}
+
+#caller3 {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 65px;
+   top: 5px;
+   background: #FFFFFF;
+}
+
+#caller4 {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 95px;
+   top: 5px;
+   background: #FFFFFF;
+}
+
+#caller5 {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 125px;
+   top: 5px;
+   background: #FFFFFF;
+}
+
+#caller6 {
+position: absolute;
+   width: 25px;
+   height: 25px;
+   left: 155px;
+   top: 5px;
+   background: #FFFFFF;
+}
+
+a:focus a:active a:visited {
+    outline: none; /* overrides chrome default focus outline */
+    text-decoration: none;
+}
