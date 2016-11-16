@@ -45,7 +45,8 @@ gem 'sequel'
  gem 'capistrano'
  gem 'capistrano-bundler'
  gem 'capistrano-rails'
- gem 'capistrano-rvm', github: "capistrano/rvm"
+ gem 'capistrano-rvm'
+ gem 'capistrano-passenger'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
