@@ -19,8 +19,8 @@ default: &default
 #  password: password
 
 development:
+ <<: *default
   database: db/development.sqlite3
-  adapter: sqlite3
   
 
 #development:
@@ -36,20 +36,20 @@ development:
 # Do not set this db to the same as development or production.
 
 
-test:
-  adapter: postgresql
-  encoding: SQL_ASCII
-  database: myapp_development
-  pool: 5
-  username: ubuntu
-  password: password
-  
 #test:
-#  <<: *default
-#  database: db/test.sqlite3
+#  adapter: postgresql
+#  encoding: SQL_ASCII
+#  database: myapp_development
+#  pool: 5
+#  username: ubuntu
+#  password: password
+  
+test:
+  <<: *default
+  database: db/test.sqlite3
 
 production:
-#  <<: *default
+  <<: *default
   database: db/production.sqlite3
 
 #production:
