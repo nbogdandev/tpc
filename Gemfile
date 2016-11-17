@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap'
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
