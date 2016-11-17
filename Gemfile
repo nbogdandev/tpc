@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap'
+gem 'bootstrap-sass'
 # autosize text areas?
 gem 'autosize-rails'
 # Display svg files as inline elements (wut?)
