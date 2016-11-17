@@ -3,8 +3,6 @@ Rails.application.configure do
 
   config.secret_key_base = 'blipblapblupblop'
   
-  config.public_file_server.enabled = true
-  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
