@@ -1,6 +1,6 @@
 class PartsController < ApplicationController
     before_filter :authenticate, :except => [:show]
-    impressionist actions: [:show]#, unique: [:session_hash]
+  #  impressionist actions: [:show]#, unique: [:session_hash]
     
     def index
         @parts = Part.all
