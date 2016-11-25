@@ -25,7 +25,7 @@
     <div id="Entry">
         <%= form_for part do |f| %>
             <p><%= image_tag part.picture.url(:thumb) %></p>
-            <p><%= f.label("Тип") %></p>
+            <p><b><%= f.label("Тип") %></b></p>
             
             <p><%= f.select :group, ["Монитор", "Системник", "Дисковод", "HDD", "SSD", "БП", "SSD m.2", "RAM", "Клава", "Мать Intel", "Мать AMD", "Джойстик", "Мышь", "CPU Intel", "CPU AMD", "Руль", "VR", "GPU Nvidia", "GPU AMD", "Наушники", "Акустика", "Звуковуха", "Картридер", "Регулятор Оборотов", "Кулер"]%></p>
             <p><b>Название:</b>

@@ -1,20 +1,20 @@
 <br>
 <div id="Entry">
     <br>
-    <h3>Добавить:</h3>
+    <h4><b>Добавить:</b></h4>
     <br>
     <%= form_for(Part.new) do |f| %>
-        <p><%= f.label("Тип") %></p>
+        <p><b><%= f.label("Тип") %></b></p>
         <p><%= f.select :group, ["Монитор", "Системник", "Дисковод", "HDD", "SSD", "БП", "SSD m.2", "RAM", "Клава", "Мать Intel", "Мать AMD", "Джойстик", "Мышь", "CPU Intel", "CPU AMD", "Руль", "VR", "GPU Nvidia", "GPU AMD", "Наушники", "Акустика", "Звуковуха", "Картридер", "Регулятор Оборотов", "Кулер"]%></p>
-        <p><%= f.label("Название") %></p>
+        <p><b><%= f.label("Название") %></b></p>
         <p><%= f.text_area :name, :id => "textarea", :rows => 1, :class => "statement" %></p>
-        <p><%= f.label("Описание") %></p>
+        <p><b><%= f.label("Описание") %></b></p>
         <p><%= f.text_area :description, :id => "textarea", :rows => 3, :width => 50, :class => "statement" %></p>
-        <p><%= f.label("Цена") %></p>
+        <p><b><%= f.label("Цена") %></b></p>
         <p><%= f.text_area :price, :rows => 1, :class => "statement" %></p>
-        <p><%= f.label("Переадресация") %></p>
+        <p><b><%= f.label("Переадресация") %></b></p>
         <p><%= f.text_area :shop_url, :rows => 1, :class => "statement" %></p>
-        <p><%= f.label("Изображение") %></p>
+        <p><b><%= f.label("Изображение") %></b></p>
         <p><%= f.file_field :picture, html: { multipart: true } %></p>
         <p><%= f.submit "Создать" %></p>
     <% end %>
