@@ -6,7 +6,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     </head>
-    
 <br>
 
 <% @parts = Part.all %>
@@ -16,15 +15,13 @@
         <div class="row">
             <div class="col-xl-4">
                 <div class="row">
-                     <%= link_to welcome_select_all_url, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-select_all'} do  %>
-                     <div id="grid">
-                       <h2><h4 align='center'>Выбрать все</h4></h2>
-					   
-					   <div class="row">
+                    <%= link_to welcome_select_all_url, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-select_all'} do  %>
+                        <div id="grid">
+                            <h2><h4 align='center'>Выбрать все</h4></h2>
+					        <div class="row">
                                 <div class="col-xl-12"></div>
                             </div> 
-                            
-					</div>
+                        </div>
 					<% end %>
                 </div>
             </div>
@@ -40,15 +37,13 @@
             <div class="col-xl-4">
                 <div class="row">
                     <%= link_to root_path, {:remote => true}, :onclick => "UncheckAll();" do  %>
-                    <div id="grid" onclick="UncheckAll();">
-					   <h2><h4 align='center'>Отмена</h4></h2>
-					   
-					   <div class="row">
+                        <div id="grid" onclick="UncheckAll();">
+    					    <h2><h4 align='center'>Отмена</h4></h2>
+    					    <div class="row">
                                 <div class="col-xl-12"></div>
-                            </div> 
-                            
-					</div>
-					<% end %>
+                            </div>
+    					</div>
+    				<% end %>
                 </div>
             </div>
         </div>
@@ -446,7 +441,7 @@
                         <% part = Part.where(:group => "GPU AMD").last %>
                         <% if part != nil %>
                         <div id="grid">
-                            <%= check_box_tag(:caller, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
+                            <%= check_box_tag(:caller,  part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
                             <%= check_box_tag(:caller2, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
                             <%= check_box_tag(:caller3, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
                             <%= check_box_tag(:caller4, part.price, false, :onclick => "clickCh(this)", :class => 'amd') %>
@@ -523,7 +518,7 @@
 <div class="modal fade" id="modal-select_all" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
 <script>
-    
+
     //module for enabling hover effect for touchscreen devices
     $(document).ready(function() { 
         $('.hover').bind('touchstart touchend', function(e) {
@@ -531,7 +526,8 @@
             $(this).toggleClass('hover_effect');
         });
     });
-    
+
+    //module for destroying data after modal hide
 $(".modal").on("hidden.bs.modal", function(){
     $(".modal-body").html("");
 });
@@ -539,12 +535,6 @@ $(".modal").on("hidden.bs.modal", function(){
 $('body').on('hidden.bs.modal', '.modal', function () {
         $(this).removeData('bs.modal');
       });
-
-
-</script>
-
-<script>
-
 
 var total = document.getElementById("total")
 function clickCh(caller){
