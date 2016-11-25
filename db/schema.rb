@@ -13,14 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20161106021831) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "parts", force: :cascade do |t|
-    t.string   "group"
-    t.string   "name"
+    t.text     "group"
+    t.text     "name"
     t.text     "description"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
+    t.text     "picture_file_name"
+    t.text     "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.float    "price"
