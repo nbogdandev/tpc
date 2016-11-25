@@ -1,17 +1,17 @@
 <% @parts = Part.all %>
 <% @parts.order!('created_at DESC')  %>
 
-<%# @impressions = Impression.all%>
+<% @impressions = Impression.all%>
 
  
-<%#= " #{@impressions.where(:controller_name => 'welcome').count} уникальных просмотров главной страницы" %>
+<%= " #{@impressions.where(:controller_name => 'welcome').count} уникальных просмотров главной страницы" %>
 
 <br>
 <br>
 
-<%# @parts.each do |part| %>
-   <%#= part.group + " #{part.impressionist_count} просмотров" %> <br>
- <%# end %>
+<% @parts.each do |part| %>
+   <%= part.group + " #{part.impressionist_count} просмотров" %> <br>
+ <% end %>
 
     <div id="header">
         <%= render partial: 'parts/new.html.erb' %>

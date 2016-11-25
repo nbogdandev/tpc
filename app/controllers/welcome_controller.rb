@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-#impressionist actions: [:index], unique: [:session_hash]
+impressionist actions: [:index], unique: [:session_hash]
 
 def index
    @parts = Part.all
