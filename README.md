@@ -1,4 +1,4 @@
 ~
-Sample app for Leonid Shokarev ~ nov2016
+Sample app for Leonid Sh. ~ nov2016
 ~
-Practicing with ruby, rails, html, css, js, ajax, bootstrap modals, gems like paperclip/impressionist/nginx/capistrano, git, postgresql, migrations, deploying & hosting
+Practicing with ruby, rails, html, css, js, ajax, bootstrap modals, gems like paperclip/impressionist/nginx/capistrano, git, ssh, postgresql, migrations, c9, digitalocean, godaddy, deploying & hosting.
