@@ -7,10 +7,12 @@ class PartsController < ApplicationController
     end
     
     def show
-        @part = Part.find(params[:id])
+        if Part.where(:id => params[:id]).present? then
+            @part = Part.find(params[:id])
+        end
 
         respond_to do |format|
-            format.html 
+            format.html {redirect_to root_path}
             format.js 
         end
     end
@@ -40,7 +42,7 @@ class PartsController < ApplicationController
     @part.update(part_params)
 
         respond_to do |format|
-            format.html {redirect_to parts_path} #, success: 'Widget was successfully created.'}
+            format.html {redirect_to parts_path}
             format.js
         end
     end

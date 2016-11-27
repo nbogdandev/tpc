@@ -10,6 +10,17 @@
 
 <% @parts = Part.all %>
 
+<div id='index'>
+    <% @parts.each do |part| %>
+		<%= part.name %>
+		<%= part.group %>
+		<%= part.description %>
+		<%= part.price %>
+		<%= part.shop_url %>
+		<br>
+ 	<% end %>
+</div>
+
 <div class="container">
     <div id=outergrid>
         <div class="row">
