@@ -507,7 +507,7 @@
             <div class="col-xl-8">
                 <div class="row">
                     <div id="grid-nope-noborder">
-					    <h3 align="right">$</h3> <!-- ≈ -->
+					    <h3 align="right"></h3> <!-- ≈ -->
                     </div>
                 </div>
             </div>
@@ -515,7 +515,7 @@
             <div class="col-xl-4">
                 <div class="row">
                     <div id="grid-nope-noborder">
-                        <input id="total" type="text" name="total" vertical-align="middle" class="statement" value="0">
+                        <input id="total" type="text" name="total" vertical-align="middle" class="statement" value="$0">
                            
                     </div>
                 </div>
@@ -555,8 +555,17 @@ add(caller)
 subtract(caller)
 }
 }
-function add(caller){ total.value = total.value*1 + caller.value*1}
-function subtract(caller){ total.value = total.value*1 - caller.value*1}
+function add(caller){ 
+    total.value = total.value.substring(1)
+    total.value = total.value*1 + caller.value*1
+    total.value = "$" + total.value
+}
+function subtract(caller){ 
+    total.value = total.value.substring(1)
+    total.value = total.value*1 - caller.value*1
+    total.value = "$" + total.value
+    
+}
 
 function UncheckAll(){ 
       var w = document.getElementsByTagName('input'); 
