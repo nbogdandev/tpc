@@ -7,7 +7,7 @@ development:
   encoding: unicode
   database: topcomp_development
   username: ubuntu
-  password: Avtomobilistov4322
+  password: ubuntu
   host: localhost
 #  adapter: sqlite3
 #  database: db/development.sqlite3

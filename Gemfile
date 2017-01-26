@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'bootstrap', '4.0.0.alpha5'
 #gem 'bootstrap-sass'
 
+gem 'json', '~> 2'
+
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 
@@ -33,7 +35,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 # PostgreSQL database main commands: 
   #sudo service postgresql start 
   #psql -c “create database myapp_development owner=ubuntu”
