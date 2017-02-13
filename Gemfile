@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap', '4.0.0.alpha5'
-#gem 'bootstrap-sass'
+#gem 'bootstrap', '4.0.0.alpha5'
 
 gem 'json', '~> 2'
 
@@ -45,6 +44,8 @@ gem 'sequel'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
