@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-#gem 'bootstrap', '4.0.0.alpha5'
+gem 'bootstrap', '4.0.0.alpha5'
 
 gem 'json', '~> 2'
 
