@@ -495,6 +495,9 @@
                         <% else %>    
                             <div id="grid"><%= inline_svg "4/48.svg", class: 'svg' %></div>
                         <% end %>
+                        
+                            
+                        
                     </div>
                 </div>
             </div>    
@@ -515,7 +518,7 @@
             <div class="col-xl-4">
                 <div class="row">
                     <div id="grid-nope-noborder">
-                        <input id="total" type="text" name="total" vertical-align="middle" class="statement" value="$0">
+                        <input id="total" type="text" name="total" vertical-align="middle" class="statement" value="$0*">
                            
                     </div>
                 </div>
@@ -524,6 +527,10 @@
 </div>
 
 <br>
+
+<div class="container">
+    <h5 style="text-align: right">*цена примерная, среднерыночная</h5>
+</div>
 
 <div class="modal fade" id="modal-show" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 <div class="modal fade" id="modal-select_all" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
@@ -557,13 +564,15 @@ subtract(caller)
 }
 function add(caller){ 
     total.value = total.value.substring(1)
+    total.value = total.value.substring(0, total.value.length - 1)
     total.value = total.value*1 + caller.value*1
-    total.value = "$" + total.value
+    total.value = "$" + total.value  + "*"
 }
 function subtract(caller){ 
     total.value = total.value.substring(1)
+    total.value = total.value.substring(0, total.value.length - 1)
     total.value = total.value*1 - caller.value*1
-    total.value = "$" + total.value
+    total.value = "$" + total.value  + "*"
     
 }
 
@@ -573,7 +582,7 @@ function UncheckAll(){
         if(w[i].type=='checkbox'){ 
           w[i].checked = false; 
           total.value = 0;
-          total.value = "$" + total.value
+          total.value = "$" + total.value + "*"
             
         }
       }
